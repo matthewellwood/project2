@@ -6,13 +6,13 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd
+from extras import apology, login_required, GBP
 
 # Configure application
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 # Custom filter
-app.jinja_env.filters["usd"] = usd
+app.jinja_env.filters["GBP"] = GBP
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -20,7 +20,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///finance.db")
+db = SQL("sqlite:///aepricelist.db")
 
 
 @app.after_request
@@ -31,18 +31,35 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/customer_order", methods=["GET"])
+@app.route("/customer_order", methods=["GET", "POST"])
 def customer_order():
     """Show Order Form"""
-    if request.method == "GET":
-        return render_template("customer_order")
+    if request.method == "POST":
+        name = request.form.get("Name")
+        address_1 = request.form.get("Address_1")
+        address_2 = request.form.get("Address_2")
+        address_3 = request.form.get("Address_3")
+        postcode = request.form.get("Postcode")
+        telephone_1 = request.form.get("Telephone_1")
+        telephone_2 = request.form.get("Telephone_2")
+        db.execute("INSERT INTO customers(name, address_1, address_2, address_3, postcode, telephone_1, telephone_2) VALUES (?,?,?,?,?,?,?);", name, address_1, address_2, address_3, postcode, telephone_1, telephone_2, ) 
+        detail = db.execute("select * from customers;")
+        return render_template("order_detail.html",detail = detail)
+    else:
+        return render_template("customer_order.html")
+
 
 
 @app.route("/", methods=["GET"])
-@login_required
+#@login_required
 def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
+         #path is filename string
+        image_file = ('static', "logo.jpg")
+
+        return render_template('index.html', image_file= image_file)
+        return render_template("index.html")
         # Get list of symbols that we have shares of
         db.execute("delete from current_price;")
         symbol = db.execute("SELECT symbol FROM stock GROUP BY symbol;")

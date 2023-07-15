@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Customer Details
+{% endblock %}
+
+{% block main %}
+<div class="section">
+
+    <h2>Customer Details</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Customer ID Code</th>
+                <th class="text-start">Name</th>
+                <th class="text-start">Address</th>
+                <th></th>
+                <th></th>
+                <th class="text-start">Postcode</th>
+                <th></th>
+                <th class="text-end" colspan="8">Telephone</th>
+                <th class="text-end">Telephone 2</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in detail %}
+            <tr>
+                <td class="text-start">{{ row["id"] }}</td>
+                <td class="text-start">{{ row["name"] }}</td>
+                <td class="text-start">{{ row["address_1"] }}</td>
+                <td class="text-start">{{ row["address_2"] }}</td>
+                <td class="text-start">{{ row["address_3"] }}</td>
+                <td class="text-start">{{ row["postcode"] }}</td>
+                <td></td>
+                <td class="text-end" colspan="8">{{ row["telephone_1"] }}</td>
+                <td class="text-end">{{ row["telephone_2"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </div>
+</form>
+
+
+{% endblock %}

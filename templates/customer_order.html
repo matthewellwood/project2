@@ -7,10 +7,15 @@ Customer Order
 {% block main %}
 <form action="/customer_order" method="post">
     <div class="mb-3">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="symbol" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="shares" type="number">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Name" placeholder="Customer Name" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Address_1" placeholder="Customer Address" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Address_2" placeholder="Customer Address" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Address_3" placeholder="Customer Address" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Postcode" placeholder="Postcode" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Telephone_1" placeholder="Telephone 1" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Telephone_2" placeholder="Telephone 2" type="text">
     </div>
-    <button class="btn btn-primary" type="submit">Buy</button>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
 
