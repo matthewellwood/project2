@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Portfolio
+Main Screen
 {% endblock %}
 
 {% block main %}
@@ -9,7 +9,7 @@ Portfolio
 <div class="section">
     <img src="{{image_file}}">
   
-    <h2>Alexander Ellis: Welcome</h2>
+    <h2>Alexander Ellis: Orders</h2>
 
     <table class="table table-striped">
         <thead>
@@ -26,15 +26,11 @@ Portfolio
               
                 <tr>
                    
-                    <form action="/buy" method="post">
+                    <form action="/new_customer">
                         <td><input type="hidden" name="symbol" ></td>                       
-                        <td><button class="btn btn-primary" type="submit">Create a New Order</button></td>
+                        <td><button class="btn btn-primary" type="submit">Create a New Customer</button></td>
                     </form>
-                    <form action="/customer_order" method="post">
-                        <td><input type="hidden" name="symbol" ></td>
-                        <td></td>                       
-                        <td><button class="btn btn-primary" type="submit">Order Detail</button></td>
-                    </form>
+
                    
                     </tr>
              

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+New Order
+{% endblock %}
+
+{% block main %}
+<div class="section">
+
+    <h2>Order Details</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            
+                <th class="text-start">Staff Member</th>
+                <th class="text-start">Order Date</th>
+                <th class="text-start">Completion</th>
+                <th class="text-start">Delivery Date</th>
+                <th></th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in ord_detail %}
+            <tr>
+                <td class="text-start">{{ row["staff_member"] }}</td>
+                <td class="text-start">{{ row["order_date"] }}</td>
+                <td class="text-start">{{ row["completion"] }}</td>
+                <td class="text-start">{{ row["delivery date"] }}</td>
+                <td class="text-start">{{ row["address_2"] }}</td>
+                <td class="text-start">{{ row["address_3"] }}</td>
+                <td class="text-start">{{ row["postcode"] }}</td>
+                <td></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </div>
+</form>
+
+
+{% endblock %}

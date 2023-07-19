@@ -6,15 +6,26 @@ Customer Order
 
 {% block main %}
 <form action="/customer_order" method="post">
+    <div class ="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="staff_member" placeholder="Order Taken By" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="order_date" placeholder="Order Date" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="completion" placeholder="Approximate completion date" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="delivery_date" placeholder="Planned Delivery date" type="text">
+    </div>
     <div class="mb-3">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="first_name" placeholder="First Name" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="last_name" placeholder="Last Name" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Address_1" placeholder="Address 1" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Address_2" placeholder="Address 2" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Address_3" placeholder="Address 3" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Postcode" placeholder="Postcode" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Telephone_1" placeholder="Telephone 1" type="text">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Telephone_2" placeholder="Telephone 2" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="item_name" placeholder="Item_Name" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="item_description" placeholder="Item_Description" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="colour-finish" placeholder="Colour/Finish" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="width" placeholder="Width" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="depth" placeholder="Depth" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="height" placeholder="Height" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="extra_details" placeholder="Extra_Details" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="selling price" placeholder="Selling_price" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="delivery-collection-taken" placeholder="Delivery/Collection/Taken" type="text">
+    </div>
+    <div class ="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="deposit_taken" placeholder="Deposit Taken" type="text">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="paid_in_full" placeholder="Paid in Full" type="text">
     </div>
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
