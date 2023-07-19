@@ -35,17 +35,18 @@ def after_request(response):
 def customer_order():
     """Show Order Form"""
     if request.method == "POST":
-        name = request.form.get("Name")
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
         address_1 = request.form.get("Address_1")
         address_2 = request.form.get("Address_2")
         address_3 = request.form.get("Address_3")
         postcode = request.form.get("Postcode")
         telephone_1 = request.form.get("Telephone_1")
         telephone_2 = request.form.get("Telephone_2")
-        db.execute("INSERT INTO customers(name, address_1, address_2, address_3, postcode, telephone_1, telephone_2) VALUES (?,?,?,?,?,?,?);", name, address_1, address_2, address_3, postcode, telephone_1, telephone_2, ) 
+        db.execute("INSERT INTO customers(first_name, last_name, address_1, address_2, address_3, postcode, telephone_1, telephone_2) VALUES (?,?,?,?,?,?,?,?);", first_name, last_name, address_1, address_2, address_3, postcode, telephone_1, telephone_2 ) 
         detail = db.execute("select * from customers;")
         return render_template("order_detail.html",detail = detail)
-    else:
+    if request.method == "GET":
         return render_template("customer_order.html")
 
 
