@@ -6,10 +6,14 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
+
 from extras import apology, login_required, GBP
 
 # Configure application
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
+#app = Flask(__name__, static_folder='static')
+
+
 
 # Custom filter
 app.jinja_env.filters["GBP"] = GBP
@@ -58,7 +62,7 @@ def index():
          #path is filename string
         image_file = ('static', "logo.jpg")
 
-        return render_template('index.html', image_file= image_file)
+        return render_template('index.html',image_file = image_file)
         return render_template("index.html")
         # Get list of symbols that we have shares of
         db.execute("delete from current_price;")

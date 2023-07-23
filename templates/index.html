@@ -1,51 +1,54 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Portfolio
+Alexander Ellis Ordering System
 {% endblock %}
 
 {% block main %}
 
-<div class="section">
-    <img src="{{image_file}}">
-  
-    <h2>Alexander Ellis: Welcome</h2>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="text-start">Customer Order</th>
-                <th class="text-start">Add Info to Order</th>
-                <th class="text-end" colspan="8">Take a Deposit</th>
-                <th class="text-end">Take Payment</th>
-                <th class="text-end">Check Details</th>
+<img src= "{{ url_for('static',filename='logo.jpg') }}"
 
-            </tr>
-        </thead>
-        <tbody>
-              
+
+    
+    <div class="section">
+        <h2>Alexander Ellis: Welcome</h2>
+
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                   
-                    <form action="/buy" method="post">
-                        <td><input type="hidden" name="symbol" ></td>                       
-                        <td><button class="btn btn-primary" type="submit">Create a New Order</button></td>
-                    </form>
-                    <form action="/customer_order" method="post">
-                        <td><input type="hidden" name="symbol" ></td>
-                        <td></td>                       
-                        <td><button class="btn btn-primary" type="submit">Order Detail</button></td>
-                    </form>
-                   
-                    </tr>
-             
-        </tbody>
+                    <th class="text-start">Customer Order</th>
+                    <th class="text-start">Add Info to Order</th>
+                    <th class="text-end" colspan="8">Take a Deposit</th>
+                    <th class="text-end">Take Payment</th>
+                    <th class="text-end">Check Details</th>
 
-        <tfoot>
-            <tr>
-                <td class="border-0 fw-bold text-end" colspan="11">Today</td>
-               
-            </tr>
-        </tfoot>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                    
+                        <form action="/buy" method="post">
+                            <td><input type="hidden" name="symbol" ></td>                       
+                            <td><button class="btn btn-primary" type="submit">Create a New Order</button></td>
+                        </form>
+                        <form action="/customer_order" method="post">
+                            <td><input type="hidden" name="symbol" ></td>
+                            <td></td>                       
+                            <td><button class="btn btn-primary" type="submit">Order Detail</button></td>
+                        </form>
+                    
+                        </tr>
+                
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="11">Today</td>
+                
+                </tr>
+            </tfoot>
     </table>
 </div>
 </div>
